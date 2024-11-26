@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive 3D Dog Model Viewer</title>
+<style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f0f0f0;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .model-viewer {
+            width: 100%;
+            height: 500px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        .dog {
+            width: 200px;
+            height: 300px;
+            position: relative;
+            margin: 100px auto;
+            transform-style: preserve-3d;
+            animation: rotate 10s infinite linear;
+        }
+        .body {
+            width: 120px;
+            height: 60px;
+            background: #8B4513;
+            position: absolute;
+            border-radius: 60px 60px 0 0;
+            transform: rotateX(-20deg);
+        }
+        .head {
+            width: 70px;
+            height: 60px;
+            background: #8B4513;
+            position: absolute;
+            border-radius: 50%;
+            top: -30px;
+            left: -20px;
+        }
+        .ear {
+            width: 30px;
+            height: 40px;
+            background: #8B4513;
+            position: absolute;
+            border-radius: 50%;
+        }
+        .ear.left {
+            top: -20px;
+            left: -10px;
+            transform: rotate(-30deg);
+        }
+        .ear.right {
+            top: -20px;
+            right: -10px;
+            transform: rotate(30deg);
+        }
+        .leg {
+            width: 20px;
+            height: 60px;
+            background: #8B4513;
+            position: absolute;
+            bottom: -60px;
+        }
+        .leg.front-left { left: 20px; }
+        .leg.front-right { left: 80px; }
+        .leg.back-left { left: 20px; bottom: -55px; }
+        .leg.back-right { left: 80px; bottom: -55px; }
+        .tail {
+            width: 15px;
+            height: 40px;
+            background: #8B4513;
+            position: absolute;
+            right: -10px;
+            bottom: 0;
+            transform-origin: bottom;
+            animation: wag 1s infinite alternate;
+        }
+        @keyframes rotate {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+        @keyframes wag {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
+        }
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 5px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #45a049;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+<h1>Interactive Dog Model</h1>
+<div class="model-viewer">
+<div class="dog">
+<div class="body">
+<div class="head">
+<div class="ear left"></div>
+<div class="ear right"></div>
+</div>
+<div class="leg front-left"></div>
+<div class="leg front-right"></div>
+<div class="leg back-left"></div>
+<div class="leg back-right"></div>
+<div class="tail"></div>
+</div>
+</div>
+</div>
+<div class="controls">
+<button onclick="document.querySelector('.dog').style.animationPlayState = 'running'">Start Rotation</button>
+<button onclick="document.querySelector('.dog').style.animationPlayState = 'paused'">Stop Rotation</button>
+</div>
+<div class="info">
+<h2>About This Model</h2>
+<p>This is an interactive 3D CSS dog model with animated rotation and tail wagging. Use the controls below to interact with the model.</p>
+<p>Visit our other models:</p>
+<ul>
+<li><a href="https://3dmodels.example/cats">Cat Models</a></li>
+<li><a href="https://3dmodels.example/breeds">Dog Breeds Collection</a></li>
+<li><a href="https://3dmodels.example/animations">Animation Library</a></li>
+</ul>
+</div>
+</div>
+</body>
+</html>
